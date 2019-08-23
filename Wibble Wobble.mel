@@ -1,0 +1,54 @@
+polyCube -w 3 -h 3 -d 3 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Box_Geo";
+move -r 0 10 0 "Box_Geo";
+rotate -r -6.75 -3.5 -24.2 "Box_Geo";
+
+polySphere -r 1 -sx 10 -sy 10 -ax 0 1 0 -cuv 2 -ch 1 -name "Right_Eye_Geo";
+move -r -1.151 10.263 1.51 "Right_Eye_Geo";
+rotate -r 83.162 -3.5 -24.2 "Right_Eye_Geo";
+scale -r .39 .217 .39 "Right_Eye_Geo";
+polySoftEdge -a 180 -ch 1 "Right_Eye_Geo";
+
+polySphere -r 1 -sx 10 -sy 10 -ax 0 1 0 -cuv 2 -ch 1 -name "Left_Eye_Geo";
+move -r .727 9.232 1.585 "Left_Eye_Geo";
+rotate -r 83.162 -3.5 -24.2 "Left_Eye_Geo";
+scale -r .39 .217 .39 "Left_Eye_Geo";
+polySoftEdge -a 180 -ch 1 "Left_Eye_Geo";
+
+polyCylinder -r .25 -h 4 -sx 10 -sy 0 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "Right_Leg_Top_Geo";
+move -r -2.206 7.384 .609 "Right_Leg_Top_Geo";
+rotate -r -12.324 -27.809 -20.526 "Right_Leg_Top_Geo";
+polySoftEdge -a 180 -ch 1 "Right_Leg_Top_Geo";
+
+polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1 -name "Right_Knee_Geo";
+move -r -3.296 5.283 1.09 "Right_Knee_Geo";
+rotate -r -22.052 0 -36.092 "Right_Knee_Geo";
+scale 0.472 0.472 0.472 "Right_Knee_Geo";
+
+polyCylinder -r .25 -h 4 -sx 10 -sy 0 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "Right_Leg_Bottom_Geo";
+move -r -3.952 3.293 1.559 "Right_Leg_Bottom_Geo";
+rotate -r -13.837 -27.133 -11.618 "Right_Leg_Bottom_Geo";
+polySoftEdge -a 180 -ch 1 "Right_Leg_Bottom_Geo";
+
+polyCube -w 1 -h .90 -d 1.90 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Right_Foot_Geo";
+move -r -4.774 1.52 2.279 "Right_Foot_Geo";
+rotate -r -37.951 -42.016 7.028 "Right_Foot_Geo";
+scale -r 1.286 .826 1 "Right_Foot_Geo";
+
+polyCylinder -r .25 -h 4 -sx 10 -sy 0 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "Left_Leg_Top_Geo";
+move -r 0 6.657 0.609 "Left_Leg_Top_Geo";
+rotate -r -1.577 1.104 -3.557 "Left_Leg_Top_Geo";
+polySoftEdge -a 180 -ch 1 "Left_Leg_Top_Geo";
+
+polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1 -name "Left_Knee_Geo";
+move -r -0.113 4.273 0.605 "Left_Knee_Geo";
+scale -r 0.472 0.472 0.472 "Left_Knee_Geo";
+
+polyCylinder -r .25 -h 4 -sx 10 -sy 0 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "Left_Leg_Bottom_Geo";
+move -r -0.121 2.239 0.464 "Left_Leg_Bottom_Geo";
+rotate -r 4.187 1.219 .734 "Left_Leg_Bottom_Geo";
+polySoftEdge -a 180 -ch 1 "Left_Leg_Bottom_Geo";
+
+polyCube -w 1 -h .90 -d 1.90 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Left_Foot_Geo";
+move 0.083 0.062 1.076 "Left_Foot_Geo";
+rotate 0.391 6.228 4.508 "Left_Foot_Geo";
+scale -r 1.286 .826 1 "Right_Foot_Geo";
