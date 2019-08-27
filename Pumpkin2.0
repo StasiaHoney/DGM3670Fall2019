@@ -36,9 +36,9 @@ scale -r -p -8.9407e-08cm 6.670102cm -1.19209e-07cm 0.714401 1 0.714401 ;
 
 polyUnite $objects ;
 Group $objects ;
-select polySurface1;
-makeIdentity -apply true -t 1 -r 1 -s 1 -n 2;
 rename group1 Geometry;
+DeleteAllHistory;
+delete -all -constructionHistory;
 
 
 
