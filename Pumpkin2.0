@@ -34,7 +34,45 @@ select -add Stem_Geo.e[60:79] ;
 softSelect -ssd 1.058348 -sud 0.5 ;
 scale -r -p -8.9407e-08cm 6.670102cm -1.19209e-07cm 0.714401 1 0.714401 ;
 
+$obj = `polyCube -w 5.888 -h 1.308 -d .8 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Knife_Geo"`;
+$objects [size($objects)] = $obj[0];
+select -add Knife_Geo.f[3];
+scale -r -p 5.371169cm -0.653882cm 0cm 1 1 0.298895 ;
+move -r 2.872 0.902 1.725 "Knife_Geo";
+rotate -r -30.835 3.168 5.289 "Knife_Geo";
+
+$obj = `polyCube -w 2.624 -h .598 -d .441 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Handle_Geo"`;
+$objects [size($objects)] = $obj[0];
+move -r 6.915 1.589 1.304 "Handle_Geo";
+rotate -r -30.835 3.168 5.289 "Handle_Geo";
+select -r Handle_Geo.e[0:11];
+polyBevel3 -fraction 0.5 -offsetAsFraction 1 -autoFit 1 -depth 1 -mitering 0 -miterAlong 0 -chamfer 1 -segments 1 -worldSpace 1 -smoothingAngle 30 -subdivideNgons 1 -mergeVertices 1 -mergeVertexTolerance 0.0001 -miteringAngle 180 -angleTolerance 180 -ch 1 Handle_Geo.e[0:11];
+polySoftEdge -a 180 -ch 1 Handle_Geo;
+
+$obj = `polyCylinder -r 1.837531 -h .1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "Blood_Puddle"`;
+$objects [size($objects)] = $obj[0];
+move -r 3.266 -3 1.807 "Blood_Puddle";
+select -add Blood_Puddle.e[0:19] ;
+polyBevel3 -fraction 0.5 -offsetAsFraction 1 -autoFit 1 -depth 1 -mitering 0 -miterAlong 0 -chamfer 1 -segments 1 -worldSpace 1 -smoothingAngle 30 -subdivideNgons 1 -mergeVertices 1 -mergeVertexTolerance 0.0001 -miteringAngle 180 -angleTolerance 180 -ch 1 Blood_Puddle.e[0:39];
+polySoftEdge -a 180 -ch 1 Blood_Puddle;
+
+$obj = `polySphere -r 1 -sx 10 -sy 10 -ax 0 1 0 -cuv 2 -ch 1 -name "Blood_Drop"`;
+$objects [size($objects)] = $obj[0];
+move -r 3.662 -2.277 1.874 "Blood_Drop";
+scale -r 0.175996 0.175996 0.175996 "Blood_Drop";
+select -r Blood_Drop.vtx[91] ;
+softSelect -ssd 0.371311 -sud 0.5 ;
+move -r -os -wd 0 0.381837 0 ;
+scale -r -p 3.662278cm 1.835265cm 1.873965cm 0.594014 1 0.594014 ;
+polySoftEdge -a 180 -ch 1 "Blood_Drop";
+
+$obj = `duplicate -rr Blood_Drop`;
+$objects [size($objects)] = $obj[0];
+move -r .2 1.5 .3 "Blood_Drop1";
+
+
 polyUnite $objects ;
+move -r 0 3 0 $objects;
 Group $objects ;
 rename group1 Geometry;
 DeleteAllHistory;
