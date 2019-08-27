@@ -1,0 +1,12 @@
+string $objects [];
+string $sels[] = `ls -sl`;
+string $obj[] = `polyUnite -ch 1 -merge UVSets 1 -centerPivot -name $sels`;
+$obj [0] = `rename $obj[0]`;
+$objects [size($objects)] = $obj[0];
+
+$obj = `duplicate -rr ($objects [size($objects) - 1];
+//the -1 returns the previous item in the array
+$objects [size($objects)] = $obj[0];
+//adds last item in array to the duplicate array 
+move -r -ws 0 1 0 $obj [0];
+rotate -r 0 15 0 $obj[0]; 

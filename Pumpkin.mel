@@ -1,83 +1,88 @@
 {
 string $obj[];
 string $objects[];
+string $pumpkin_geo = "Pumpkin_Geo";
+string $stem_geo = "Stem_Geo";
+string $knife_geo = "Knife_Geo";
+string $handle_geo = "Handle_Geo";
+string $blood_puddle = "Blood_Puddle";
+string $blood_drop = "Blood_Drop";
+string $blood_drop1 = "Blood_Drop1";
+string $geometry = "Geometry";
     
-
-$obj = `polySphere -r 5 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1 -name "Pumpkin_Geo"`;
+$obj = `polySphere -r 5 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+$obj[0] = `rename $obj[0] $pumpkin_geo`;
 $objects [size($objects)] = $obj[0];
 
-select -add Pumpkin_Geo.vtx[380:381];
+select -add $pumpkin_geo.vtx[380:381];
 softSelect -ssd 7.305157 -sud 0.5 ;
 scale -r -p 0cm 0cm 0cm 1 0.967976 1 ;
 softSelect -ssd 2.864253 -sud 0.5 ;
 scale -r -p 0cm 0cm 0cm 1 0.724951 1 ;
-select -add Pumpkin_Geo.e[394] Pumpkin_Geo.e[414] Pumpkin_Geo.e[434] Pumpkin_Geo.e[454] Pumpkin_Geo.e[474] Pumpkin_Geo.e[494] Pumpkin_Geo.e[514] Pumpkin_Geo.e[534] Pumpkin_Geo.e[554] Pumpkin_Geo.e[574] Pumpkin_Geo.e[594] Pumpkin_Geo.e[614] Pumpkin_Geo.e[634] Pumpkin_Geo.e[654] Pumpkin_Geo.e[674] Pumpkin_Geo.e[694] Pumpkin_Geo.e[714] Pumpkin_Geo.e[734] Pumpkin_Geo.e[754] Pumpkin_Geo.e[774] ;
-select -add Pumpkin_Geo.e[390] Pumpkin_Geo.e[410] Pumpkin_Geo.e[430] Pumpkin_Geo.e[450] Pumpkin_Geo.e[470] Pumpkin_Geo.e[490] Pumpkin_Geo.e[510] Pumpkin_Geo.e[530] Pumpkin_Geo.e[550] Pumpkin_Geo.e[570] Pumpkin_Geo.e[590] Pumpkin_Geo.e[610] Pumpkin_Geo.e[630] Pumpkin_Geo.e[650] Pumpkin_Geo.e[670] Pumpkin_Geo.e[690] Pumpkin_Geo.e[710] Pumpkin_Geo.e[730] Pumpkin_Geo.e[750] Pumpkin_Geo.e[770] ;
-select -add Pumpkin_Geo.e[386] Pumpkin_Geo.e[406] Pumpkin_Geo.e[426] Pumpkin_Geo.e[446] Pumpkin_Geo.e[466] Pumpkin_Geo.e[486] Pumpkin_Geo.e[506] Pumpkin_Geo.e[526] Pumpkin_Geo.e[546] Pumpkin_Geo.e[566] Pumpkin_Geo.e[586] Pumpkin_Geo.e[606] Pumpkin_Geo.e[626] Pumpkin_Geo.e[646] Pumpkin_Geo.e[666] Pumpkin_Geo.e[686] Pumpkin_Geo.e[706] Pumpkin_Geo.e[726] Pumpkin_Geo.e[746] Pumpkin_Geo.e[766] ;
-select -add Pumpkin_Geo.e[382] Pumpkin_Geo.e[402] Pumpkin_Geo.e[422] Pumpkin_Geo.e[442] Pumpkin_Geo.e[462] Pumpkin_Geo.e[482] Pumpkin_Geo.e[502] Pumpkin_Geo.e[522] Pumpkin_Geo.e[542] Pumpkin_Geo.e[562] Pumpkin_Geo.e[582] Pumpkin_Geo.e[602] Pumpkin_Geo.e[622] Pumpkin_Geo.e[642] Pumpkin_Geo.e[662] Pumpkin_Geo.e[682] Pumpkin_Geo.e[702] Pumpkin_Geo.e[722] Pumpkin_Geo.e[742] Pumpkin_Geo.e[762] ;
-select -add Pumpkin_Geo.e[398] Pumpkin_Geo.e[418] Pumpkin_Geo.e[438] Pumpkin_Geo.e[458] Pumpkin_Geo.e[478] Pumpkin_Geo.e[498] Pumpkin_Geo.e[518] Pumpkin_Geo.e[538] Pumpkin_Geo.e[558] Pumpkin_Geo.e[578] Pumpkin_Geo.e[598] Pumpkin_Geo.e[618] Pumpkin_Geo.e[638] Pumpkin_Geo.e[658] Pumpkin_Geo.e[678] Pumpkin_Geo.e[698] Pumpkin_Geo.e[718] Pumpkin_Geo.e[738] Pumpkin_Geo.e[758] Pumpkin_Geo.e[778] ;
+select -add $pumpkin_geo.e[394] $pumpkin_geo.e[414] $pumpkin_geo.e[434] $pumpkin_geo.e[454] $pumpkin_geo.e[474] $pumpkin_geo.e[494] $pumpkin_geo.e[514] $pumpkin_geo.e[534] $pumpkin_geo.e[554] $pumpkin_geo.e[574] $pumpkin_geo.e[594] $pumpkin_geo.e[614] $pumpkin_geo.e[634] $pumpkin_geo.e[654] $pumpkin_geo.e[674] $pumpkin_geo.e[694] $pumpkin_geo.e[714] $pumpkin_geo.e[734] $pumpkin_geo.e[754] $pumpkin_geo.e[774] ;
+select -add $pumpkin_geo.e[390] $pumpkin_geo.e[410] $pumpkin_geo.e[430] $pumpkin_geo.e[450] $pumpkin_geo.e[470] $pumpkin_geo.e[490] $pumpkin_geo.e[510] $pumpkin_geo.e[530] $pumpkin_geo.e[550] $pumpkin_geo.e[570] $pumpkin_geo.e[590] $pumpkin_geo.e[610] $pumpkin_geo.e[630] $pumpkin_geo.e[650] $pumpkin_geo.e[670] $pumpkin_geo.e[690] $pumpkin_geo.e[710] $pumpkin_geo.e[730] $pumpkin_geo.e[750] $pumpkin_geo.e[770] ;
+select -add $pumpkin_geo.e[386] $pumpkin_geo.e[406] $pumpkin_geo.e[426] $pumpkin_geo.e[446] $pumpkin_geo.e[466] $pumpkin_geo.e[486] $pumpkin_geo.e[506] $pumpkin_geo.e[526] $pumpkin_geo.e[546] $pumpkin_geo.e[566] $pumpkin_geo.e[586] $pumpkin_geo.e[606] $pumpkin_geo.e[626] $pumpkin_geo.e[646] $pumpkin_geo.e[666] $pumpkin_geo.e[686] $pumpkin_geo.e[706] $pumpkin_geo.e[726] $pumpkin_geo.e[746] $pumpkin_geo.e[766] ;
+select -add $pumpkin_geo.e[382] $pumpkin_geo.e[402] $pumpkin_geo.e[422] $pumpkin_geo.e[442] $pumpkin_geo.e[462] $pumpkin_geo.e[482] $pumpkin_geo.e[502] $pumpkin_geo.e[522] $pumpkin_geo.e[542] $pumpkin_geo.e[562] $pumpkin_geo.e[582] $pumpkin_geo.e[602] $pumpkin_geo.e[622] $pumpkin_geo.e[642] $pumpkin_geo.e[662] $pumpkin_geo.e[682] $pumpkin_geo.e[702] $pumpkin_geo.e[722] $pumpkin_geo.e[742] $pumpkin_geo.e[762] ;
+select -add $pumpkin_geo.e[398] $pumpkin_geo.e[418] $pumpkin_geo.e[438] $pumpkin_geo.e[458] $pumpkin_geo.e[478] $pumpkin_geo.e[498] $pumpkin_geo.e[518] $pumpkin_geo.e[538] $pumpkin_geo.e[558] $pumpkin_geo.e[578] $pumpkin_geo.e[598] $pumpkin_geo.e[618] $pumpkin_geo.e[638] $pumpkin_geo.e[658] $pumpkin_geo.e[678] $pumpkin_geo.e[698] $pumpkin_geo.e[718] $pumpkin_geo.e[738] $pumpkin_geo.e[758] $pumpkin_geo.e[778] ;
 softSelect -ssd 1.228983 -sud 0.5 ;
 scale -r -p -4.76837e-07cm 0cm 0.477457cm 0.889963 1 0.889963 ;
-polySoftEdge -a 0 -ch 1 Pumpkin_Geo.e[382] Pumpkin_Geo.e[386] Pumpkin_Geo.e[390] Pumpkin_Geo.e[394] Pumpkin_Geo.e[398] Pumpkin_Geo.e[402] Pumpkin_Geo.e[406] Pumpkin_Geo.e[410] Pumpkin_Geo.e[414] Pumpkin_Geo.e[418] Pumpkin_Geo.e[422] Pumpkin_Geo.e[426] Pumpkin_Geo.e[430] Pumpkin_Geo.e[434] Pumpkin_Geo.e[438] Pumpkin_Geo.e[442] Pumpkin_Geo.e[446] Pumpkin_Geo.e[450] Pumpkin_Geo.e[454] Pumpkin_Geo.e[458] Pumpkin_Geo.e[462] Pumpkin_Geo.e[466] Pumpkin_Geo.e[470] Pumpkin_Geo.e[474] Pumpkin_Geo.e[478] Pumpkin_Geo.e[482] Pumpkin_Geo.e[486] Pumpkin_Geo.e[490] Pumpkin_Geo.e[494] Pumpkin_Geo.e[498] Pumpkin_Geo.e[502] Pumpkin_Geo.e[506] Pumpkin_Geo.e[510] Pumpkin_Geo.e[514] Pumpkin_Geo.e[518] Pumpkin_Geo.e[522] Pumpkin_Geo.e[526] Pumpkin_Geo.e[530] Pumpkin_Geo.e[534] Pumpkin_Geo.e[538] Pumpkin_Geo.e[542] Pumpkin_Geo.e[546] Pumpkin_Geo.e[550] Pumpkin_Geo.e[554] Pumpkin_Geo.e[558] Pumpkin_Geo.e[562] Pumpkin_Geo.e[566] Pumpkin_Geo.e[570] Pumpkin_Geo.e[574] Pumpkin_Geo.e[578] Pumpkin_Geo.e[582] Pumpkin_Geo.e[586] Pumpkin_Geo.e[590] Pumpkin_Geo.e[594] Pumpkin_Geo.e[598] Pumpkin_Geo.e[602] Pumpkin_Geo.e[606] Pumpkin_Geo.e[610] Pumpkin_Geo.e[614] Pumpkin_Geo.e[618] Pumpkin_Geo.e[622] Pumpkin_Geo.e[626] Pumpkin_Geo.e[630] Pumpkin_Geo.e[634] Pumpkin_Geo.e[638] Pumpkin_Geo.e[642] Pumpkin_Geo.e[646] Pumpkin_Geo.e[650] Pumpkin_Geo.e[654] Pumpkin_Geo.e[658] Pumpkin_Geo.e[662] Pumpkin_Geo.e[666] Pumpkin_Geo.e[670] Pumpkin_Geo.e[674] Pumpkin_Geo.e[678] Pumpkin_Geo.e[682] Pumpkin_Geo.e[686] Pumpkin_Geo.e[690] Pumpkin_Geo.e[694] Pumpkin_Geo.e[698] Pumpkin_Geo.e[702] Pumpkin_Geo.e[706] Pumpkin_Geo.e[710] Pumpkin_Geo.e[714] Pumpkin_Geo.e[718] Pumpkin_Geo.e[722] Pumpkin_Geo.e[726] Pumpkin_Geo.e[730] Pumpkin_Geo.e[734] Pumpkin_Geo.e[738] Pumpkin_Geo.e[742] Pumpkin_Geo.e[746] Pumpkin_Geo.e[750] Pumpkin_Geo.e[754] Pumpkin_Geo.e[758] Pumpkin_Geo.e[762] Pumpkin_Geo.e[766] Pumpkin_Geo.e[770] Pumpkin_Geo.e[774] Pumpkin_Geo.e[778];
+//polySoftEdge -a 180 -ch 1 $pumpkin_geo;
+//polySoftEdge -a 0 -ch 1 $pumpkin_geo.e[382] $pumpkin_geo.e[386] $pumpkin_geo.e[390] $pumpkin_geo.e[394] $pumpkin_geo.e[398] $pumpkin_geo.e[402] $pumpkin_geo.e[406] $pumpkin_geo.e[410] $pumpkin_geo.e[414] $pumpkin_geo.e[418] $pumpkin_geo.e[422] $pumpkin_geo.e[426] $pumpkin_geo.e[430] $pumpkin_geo.e[434] $pumpkin_geo.e[438] $pumpkin_geo.e[442] $pumpkin_geo.e[446] $pumpkin_geo.e[450] $pumpkin_geo.e[454] $pumpkin_geo.e[458] $pumpkin_geo.e[462] $pumpkin_geo.e[466] $pumpkin_geo.e[470] $pumpkin_geo.e[474] $pumpkin_geo.e[478] $pumpkin_geo.e[482] $pumpkin_geo.e[486] $pumpkin_geo.e[490] $pumpkin_geo.e[494] $pumpkin_geo.e[498] $pumpkin_geo.e[502] $pumpkin_geo.e[506] $pumpkin_geo.e[510] $pumpkin_geo.e[514] $pumpkin_geo.e[518] $pumpkin_geo.e[522] $pumpkin_geo.e[526] $pumpkin_geo.e[530] $pumpkin_geo.e[534] $pumpkin_geo.e[538] $pumpkin_geo.e[542] $pumpkin_geo.e[546] $pumpkin_geo.e[550] $pumpkin_geo.e[554] $pumpkin_geo.e[558] $pumpkin_geo.e[562] $pumpkin_geo.e[566] $pumpkin_geo.e[570] $pumpkin_geo.e[574] $pumpkin_geo.e[578] $pumpkin_geo.e[582] $pumpkin_geo.e[586] $pumpkin_geo.e[590] $pumpkin_geo.e[594] $pumpkin_geo.e[598] $pumpkin_geo.e[602] $pumpkin_geo.e[606] $pumpkin_geo.e[610] $pumpkin_geo.e[614] $pumpkin_geo.e[618] $pumpkin_geo.e[622] $pumpkin_geo.e[626] $pumpkin_geo.e[630] $pumpkin_geo.e[634] $pumpkin_geo.e[638] $pumpkin_geo.e[642] $pumpkin_geo.e[646] $pumpkin_geo.e[650] $pumpkin_geo.e[654] $pumpkin_geo.e[658] $pumpkin_geo.e[662] $pumpkin_geo.e[666] $pumpkin_geo.e[670] $pumpkin_geo.e[674] $pumpkin_geo.e[678] $pumpkin_geo.e[682] $pumpkin_geo.e[686] $pumpkin_geo.e[690] $pumpkin_geo.e[694] $pumpkin_geo.e[698] $pumpkin_geo.e[702] $pumpkin_geo.e[706] $pumpkin_geo.e[710] $pumpkin_geo.e[714] $pumpkin_geo.e[718] $pumpkin_geo.e[722] $pumpkin_geo.e[726] $pumpkin_geo.e[730] $pumpkin_geo.e[734] $pumpkin_geo.e[738] $pumpkin_geo.e[742] $pumpkin_geo.e[746] $pumpkin_geo.e[750] $pumpkin_geo.e[754] $pumpkin_geo.e[758] $pumpkin_geo.e[762] $pumpkin_geo.e[766] $pumpkin_geo.e[770] $pumpkin_geo.e[774] $pumpkin_geo.e[778];
 
-
-$obj = `polyCylinder -r .5 -h 2 -sx 20 -sy 5 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "Stem_Geo"`;
+$obj = `polyCylinder -r .5 -h 2 -sx 20 -sy 5 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name $stem_geo`;
 $objects [size($objects)] = $obj[0];
-move -r 0 3.6 0 "Stem_Geo";
-select -add Stem_Geo.e[0:19];
+move -r 0 3.6 0 $stem_geo;
+select -add $stem_geo.e[0:19];
 softSelect -ssd 0.486714 -sud 0.5 ;
 scale -r -p -8.9407e-08cm 5.470102cm -1.19209e-07cm 1.772655 1 1.772655 ;
-select -add Stem_Geo.e[100:119] ;
+select -add $stem_geo.e[100:119] ;
 softSelect -ssd 0.486714 -sud 0.5 ;
 scale -r -p -8.9407e-08cm 7.470102cm -1.19209e-07cm 1.315939 1 1.315939 ;
-select -add Stem_Geo.e[60:79] ;
+select -add $stem_geo.e[60:79] ;
 softSelect -ssd 1.058348 -sud 0.5 ;
 scale -r -p -8.9407e-08cm 6.670102cm -1.19209e-07cm 0.714401 1 0.714401 ;
 
-$obj = `polyCube -w 5.888 -h 1.308 -d .8 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Knife_Geo"`;
+$obj = `polyCube -w 5.888 -h 1.308 -d .8 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name $knife_geo`;
 $objects [size($objects)] = $obj[0];
-select -add Knife_Geo.f[3];
+select -add $knife_geo.f[3];
 scale -r -p 5.371169cm -0.653882cm 0cm 1 1 0.298895 ;
-move -r 2.872 0.902 1.725 "Knife_Geo";
-rotate -r -30.835 3.168 5.289 "Knife_Geo";
+move -r 2.872 0.902 1.725 $knife_geo;
+rotate -r -30.835 3.168 5.289 $knife_geo;
 
-$obj = `polyCube -w 2.624 -h .598 -d .441 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name "Handle_Geo"`;
+$obj = `polyCube -w 2.624 -h .598 -d .441 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1 -name $handle_geo`;
 $objects [size($objects)] = $obj[0];
-move -r 6.915 1.589 1.304 "Handle_Geo";
-rotate -r -30.835 3.168 5.289 "Handle_Geo";
-select -r Handle_Geo.e[0:11];
-polyBevel3 -fraction 0.5 -offsetAsFraction 1 -autoFit 1 -depth 1 -mitering 0 -miterAlong 0 -chamfer 1 -segments 1 -worldSpace 1 -smoothingAngle 30 -subdivideNgons 1 -mergeVertices 1 -mergeVertexTolerance 0.0001 -miteringAngle 180 -angleTolerance 180 -ch 1 Handle_Geo.e[0:11];
-polySoftEdge -a 180 -ch 1 Handle_Geo;
+move -r 6.915 1.589 1.304 $handle_geo;
+rotate -r -30.835 3.168 5.289 $handle_geo;
+select -r $handle_geo.e[0:11];
+polyBevel3 -fraction 0.5 -offsetAsFraction 1 -autoFit 1 -depth 1 -mitering 0 -miterAlong 0 -chamfer 1 -segments 1 -worldSpace 1 -smoothingAngle 30 -subdivideNgons 1 -mergeVertices 1 -mergeVertexTolerance 0.0001 -miteringAngle 180 -angleTolerance 180 -ch 1 $handle_geo.e[0:11];
+polySoftEdge -a 180 -ch 1 $handle_geo;
 
-$obj = `polyCylinder -r 1.837531 -h .1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name "Blood_Puddle"`;
+$obj = `polyCylinder -r 1.837531 -h .1 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1 -name $blood_puddle`;
 $objects [size($objects)] = $obj[0];
-move -r 3.266 -3 1.807 "Blood_Puddle";
-select -add Blood_Puddle.e[0:19] ;
-polyBevel3 -fraction 0.5 -offsetAsFraction 1 -autoFit 1 -depth 1 -mitering 0 -miterAlong 0 -chamfer 1 -segments 1 -worldSpace 1 -smoothingAngle 30 -subdivideNgons 1 -mergeVertices 1 -mergeVertexTolerance 0.0001 -miteringAngle 180 -angleTolerance 180 -ch 1 Blood_Puddle.e[0:39];
-polySoftEdge -a 180 -ch 1 Blood_Puddle;
+move -r 3.266 -3 1.807 $blood_puddle;
+select -add $blood_puddle.e[0:19] ;
+polyBevel3 -fraction 0.5 -offsetAsFraction 1 -autoFit 1 -depth 1 -mitering 0 -miterAlong 0 -chamfer 1 -segments 1 -worldSpace 1 -smoothingAngle 30 -subdivideNgons 1 -mergeVertices 1 -mergeVertexTolerance 0.0001 -miteringAngle 180 -angleTolerance 180 -ch 1 $blood_puddle.e[0:39];
+polySoftEdge -a 180 -ch 1 $blood_puddle;
 
-$obj = `polySphere -r 1 -sx 10 -sy 10 -ax 0 1 0 -cuv 2 -ch 1 -name "Blood_Drop"`;
+$obj = `polySphere -r 1 -sx 10 -sy 10 -ax 0 1 0 -cuv 2 -ch 1 -name $blood_drop`;
 $objects [size($objects)] = $obj[0];
-move -r 3.662 -2.277 1.874 "Blood_Drop";
-scale -r 0.175996 0.175996 0.175996 "Blood_Drop";
-select -r Blood_Drop.vtx[91] ;
+move -r 3.662 -2.277 1.874 $blood_drop;
+scale -r 0.175996 0.175996 0.175996 $blood_drop;
+select -r $blood_drop.vtx[91] ;
 softSelect -ssd 0.371311 -sud 0.5 ;
 move -r -os -wd 0 0.381837 0 ;
 scale -r -p 3.662278cm 1.835265cm 1.873965cm 0.594014 1 0.594014 ;
-polySoftEdge -a 180 -ch 1 "Blood_Drop";
+polySoftEdge -a 180 -ch 1 $blood_drop;
 
-$obj = `duplicate -rr Blood_Drop`;
+$obj = `duplicate -rr $blood_drop`;
 $objects [size($objects)] = $obj[0];
-move -r .2 1.5 .3 "Blood_Drop1";
-
+move -r .2 1.5 .3 $blood_drop1;
 
 polyUnite $objects ;
 move -r 0 3 0 $objects;
 Group $objects ;
 rename group1 Geometry;
+rename polySurface1 $pumpkin_geo;
 DeleteAllHistory;
 delete -all -constructionHistory;
-
-
-
 }
