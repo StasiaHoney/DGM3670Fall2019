@@ -1,0 +1,45 @@
+//ADVANCED SCRIPTING MACRO ii: EXAMPLE
+
+{ int $radius = 1; string $obj[]; string $objects[];
+
+$obj = `polySphere -radius $radius`;
+print $obj;
+//NEST IN BACK-TICK (`) WHEN DOING "=" OPERATIONS, OR MAYA WILL THROW AN ERROR
+
+move -absolute -worldSpace 0 ($radius*2) 0 $obj[0];
+$radius++;
+//THIS IS WHERE ANY ADJUSTING TO THE SPECIFIC OBJECT WILL GO
+
+$objects[size($objects)] = $obj[0];
+//SENDS RECENT OBJECT TO BACK OF THE ARRAY. MOVES ONTO THE NEXT
+//COPY TO REPEAT ACTION, OR DON'T TO CREATE NEW, UNIQUE GEOMETRY
+
+$obj = `polySphere -radius $radius`;
+print $obj;
+
+move -absolute -worldSpace 0 ($radius*2) 0 $obj[0];
+$radius++;
+
+$objects[size($objects)] = $obj[0];
+
+$obj = `polySphere -radius $radius`;
+print $obj;
+
+move -absolute -worldSpace 0 ($radius*2) 0 $obj[0];
+$radius++;
+
+$objects[size($objects)] = $obj[0];
+
+$obj = `polySphere -radius $radius`;
+print $obj;
+
+move -absolute -worldSpace 0 ($radius*2) 0 $obj[0];
+$radius++;
+
+$objects[size($objects)] = $obj[0];
+}
+
+
+
+
+	
