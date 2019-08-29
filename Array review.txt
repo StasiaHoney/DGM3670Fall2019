@@ -1,0 +1,8 @@
+string $names[] = {"Mel", "Todd", "Phil"}; //how to assign items into array index in mel
+$names[0] = "Tony";
+stringArrayInsertAtIndex(0, $names, "Tony"); //inserts an item into a certain spot in an array
+int $size = size($names); //another way to say $names[size($names);
+
+$names [ $size ];
+$names [size($names)];
+//those are the exact same things
