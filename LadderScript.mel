@@ -1,5 +1,6 @@
 {
 string $obj[];
+string $objs[];
 string $object[];
 string $objects[];
 string $ladder = "Ladder_Geo#";
@@ -16,31 +17,19 @@ $objects [size($objects)] = $obj[0];
  polyUnite $objects;
  DeleteAllHistory;
  delete -all -constructionHistory;
- rename polySurface1 "Ladder_Geo1";
+ rename polySurface1 $ladder;
+ stringArrayInsertAtIndex (0, $object , "Ladder_Geo1");
  
- stringArrayInsertAtIndex (0, $object , "Ladder_Geo1"); 
- 
- duplicate Ladder_Geo1;
- stringArrayInsertAtIndex (1, $object , "Ladder_Geo2"); 
- move -r 0 5 0 Ladder_Geo2;
- duplicate Ladder_Geo2;
- 
- stringArrayInsertAtIndex (2, $object , "Ladder_Geo3"); 
- move -r 0 5 0 Ladder_Geo3;
- 
- duplicate Ladder_Geo3;
- stringArrayInsertAtIndex (3, $object , "Ladder_Geo4"); 
- move -r 0 5 0 Ladder_Geo4;
- 
- duplicate Ladder_Geo4;
- stringArrayInsertAtIndex (4, $object , "Ladder_Geo5"); 
- move -r 0 5 0 Ladder_Geo5;
- 
- 
+ for( $i = 0; $i <$NumberOfLadders; $i ++)
+ {
+	$objs = `duplicate`;
+	$object [size($object)] =$objs[0];
+	move -r 0 5 0;
+ }
 polyUnite $object;
 Group $object ;
 rename group1 Geometry;
 rename polySurface1 $ladder;
 DeleteAllHistory;
 delete -all -constructionHistory;
-} 
+ }
