@@ -1,0 +1,31 @@
+string $sels [] = `ls -sl`;
+
+if (size($sels) > 0) // check if there are items selected
+{
+	print ("You have " + size($sels) + "objects selected.");
+}
+else 
+{
+	error("Must \"select\" an object!");
+}
+print ("\n Through the if statement.");
+//when printing "\t" with indent/tab, "\r" carriage return, "\n" newline, "\\" add \ to string, "\"" adds quotes to strings.
+
+
+//////////////////////
+
+string $sels [] = `ls -sl`;
+
+if (!size($sels) > 0)
+{
+	error("Must \"select\" an object!");
+}
+//same thing just terminating the script sooner
+
+//////////////////////
+
+for( $i/*iterator*/ = 0; $i/*condition*/ <size($sels) ; $i++ /*increment*/)
+{
+	print ("This object is named " + $sels[$i]);
+	
+} 
