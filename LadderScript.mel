@@ -1,0 +1,46 @@
+{
+string $obj[];
+string $object[];
+string $objects[];
+string $ladder = "Ladder_Geo#";
+int $NumberOfLadders = 5;
+$obj = `polyCube -w 0.682 -h 5 -d 0.682 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1`;
+$objects [size($objects)] = $obj[0];
+move -r 0 0 3 pCube1;
+$obj = `polyCube -w 0.682 -h 5 -d 0.682 -sx 1 -sy 1 -sz 1 -ax 0 1 0 -cuv 4 -ch 1`;
+$objects [size($objects)] = $obj[0];
+move -r 0 0 -3 pCube2;
+$obj = `polyCylinder -r .283 -h 6 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1`;
+$objects [size($objects)] = $obj[0];
+ rotate -r 90 0 0 pCylinder1;
+ polyUnite $objects;
+ DeleteAllHistory;
+ delete -all -constructionHistory;
+ rename polySurface1 "Ladder_Geo1";
+ 
+ stringArrayInsertAtIndex (0, $object , "Ladder_Geo1"); 
+ 
+ duplicate Ladder_Geo1;
+ stringArrayInsertAtIndex (1, $object , "Ladder_Geo2"); 
+ move -r 0 5 0 Ladder_Geo2;
+ duplicate Ladder_Geo2;
+ 
+ stringArrayInsertAtIndex (2, $object , "Ladder_Geo3"); 
+ move -r 0 5 0 Ladder_Geo3;
+ 
+ duplicate Ladder_Geo3;
+ stringArrayInsertAtIndex (3, $object , "Ladder_Geo4"); 
+ move -r 0 5 0 Ladder_Geo4;
+ 
+ duplicate Ladder_Geo4;
+ stringArrayInsertAtIndex (4, $object , "Ladder_Geo5"); 
+ move -r 0 5 0 Ladder_Geo5;
+ 
+ 
+polyUnite $object;
+Group $object ;
+rename group1 Geometry;
+rename polySurface1 $ladder;
+DeleteAllHistory;
+delete -all -constructionHistory;
+} 
