@@ -1,0 +1,25 @@
+proc RandomDuplicater()
+{	
+	string $obj[];
+	string $objects[];
+	int $duplicationAmount;
+	float $xPerametersLow;
+	float $xPerametersHigh;
+	float $yPerametersLow;
+	float $yPerametersHigh;
+	float $zPerametersLow;
+	float $zPerametersHigh;
+	
+	float $x = `rand $xPerametersLow $xPerametersHigh`;
+	float $y = `rand $yPerametersLow $yPerametersHigh`;
+	float $z = `rand $zPerametersLow $zPerametersHigh`;
+	
+	$obj = `polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+	for($i=0; $i<$duplicationAmount; $i++)
+	{
+		$objects = `duplicate`;
+		move $x $y $z (size($objects)-1);
+	}
+}
+
+RandomDuplicater();
