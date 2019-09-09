@@ -1,25 +1,38 @@
-proc RandomDuplicater()
-{	
+{proc RandomDuplicater()
+{	string $sels [] = `ls -sl`;
+
+if (!size($sels) > 0)
+{
+	error("Must \"select\" an object!");
+}
 	string $obj[];
 	string $objects[];
-	int $duplicationAmount;
-	float $xPerametersLow;
-	float $xPerametersHigh;
-	float $yPerametersLow;
-	float $yPerametersHigh;
-	float $zPerametersLow;
-	float $zPerametersHigh;
+	int $duplicationAmount = 10;
+	float $xPerametersLow = -10;
+	float $xPerametersHigh = 10;
+	float $yPerametersLow = -10;
+	float $yPerametersHigh = 10;
+	float $zPerametersLow = -10;
+	float $zPerametersHigh = 10;
+	float $xOffset = 0;
+	float $yOffset = 20;
+	float $zOffset = 0;
 	
-	float $x = `rand $xPerametersLow $xPerametersHigh`;
-	float $y = `rand $yPerametersLow $yPerametersHigh`;
-	float $z = `rand $zPerametersLow $zPerametersHigh`;
 	
-	$obj = `polySphere -r 1 -sx 20 -sy 20 -ax 0 1 0 -cuv 2 -ch 1`;
+	
 	for($i=0; $i<$duplicationAmount; $i++)
 	{
-		$objects = `duplicate`;
-		move $x $y $z (size($objects)-1);
+		$obj = `duplicate`;
+		$objects [size($objects)] = $obj[0];
+		float $x = `rand $xPerametersLow $xPerametersHigh`;
+		float $y = `rand $yPerametersLow $yPerametersHigh`;
+		float $z = `rand $zPerametersLow $zPerametersHigh`;
+		move $x $y $z;
 	}
+	
+	move -r $xOffset $yOffset $zOffset $objects;
+	group $objects;
+}
 }
 
 RandomDuplicater();
