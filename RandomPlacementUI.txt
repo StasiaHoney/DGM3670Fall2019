@@ -1,0 +1,22 @@
+if (!`uiTemplate -exists TestTemplate`) {
+ uiTemplate TestTemplate;
+}
+
+frameLayout -defineTemplate TestTemplate 
+ -borderVisible true -labelVisible true -labelAlign "center"
+ -marginWidth 3 -marginHeight 10;
+
+window -title "Random Placement Generator" UIWindow01;
+ 
+ setUITemplate -pushTemplate TestTemplate;
+ frameLayout -label "Tool Window" TestFrameLayout;
+ columnLayout TestColumnLayout;
+ floatFieldGrp -label "X Parameters" -numberOfFields 2;
+ floatFieldGrp -label "Y Parameters" -numberOfFields 2;
+ floatFieldGrp -label "Z Parameters" -numberOfFields 2;
+ floatFieldGrp -label "X Offset";
+ floatFieldGrp -label "Y Offset";
+ floatFieldGrp -label "Z Offset";
+
+ setUITemplate -popTemplate;
+showWindow UIWindow01;
