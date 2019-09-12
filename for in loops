@@ -1,0 +1,16 @@
+string $names[] = {"Joe", "Julia", "Conrad"}
+
+for ($i=0; $i <size($names); $i++)
+{
+
+	print ("My name is " + $names[$i];
+
+}
+
+for($item in $names) /* this is the same as a foreach loop*/
+{
+	print ("My name is " + $item);
+}
+
+//these loops will do the same thing 
+//for in loops do the same thing as the for loop without the index var

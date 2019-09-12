@@ -1,0 +1,31 @@
+string $name1[] = {"Joe", "Julia", "Conrad"};
+string $name2[] = {"Charlie", "Alex", "Fliss"};
+
+print("Our names are " + $name1[0] + " and " + $name2[0] + "!";
+
+format -stringArg $name1[0] -stringArg $name2[0] "Our names are ^1s and ^2s!";
+//these are the same, the second is more readable
+
+
+//////////////////
+
+string $test = "Hello,my,name,is,Coral";
+string $tokens[];
+
+tokenize $test "," $tokens;
+//takes test and separates anything divided by the 
+
+string $test "L_Arm_##_Geo";
+string $tokens[];
+
+tokenize $test "#" $tokens;
+
+int $whole = `size($test);
+int $prefix = `size($tokens[0])`;
+int $suffix = `size($tokens[1])`;
+int $tokensAdded = $prefix + $suffix;
+int $numOf# = $whole - $tokensAdded;
+print($numOf#);
+
+//doesn't work but it's a start
+ 
