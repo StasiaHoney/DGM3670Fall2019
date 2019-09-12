@@ -1,27 +1,24 @@
 {proc RandomDuplicater(
-    int $duplicationAmount,
-    float $xMin,
-	float $xMax,
-	float $yMin,
-	float $yMax,
-	float $zMin,
-	float $zMax,
-	float $xOffset,
-	float $yOffset,
-	float $zOffset)
-{	string $sels [] = `ls -sl`;
+int $duplicationAmount,
+float $xMin,
+float $xMax,
+float $yMin,
+float $yMax,
+float $zMin,
+float $zMax,
+float $xOffset,
+float $yOffset,
+float $zOffset) {	
 
-if (size($sels) != 1)
-{
-	error("Must select one object!");
-}
-	string $obj[];
-	string $objects[];
-	string $name = $sels[0];
-	
-	
-	
-	
+string $sels [] = `ls -sl`;
+
+    if (size($sels) != 1)
+    {
+    	error("Must select one object!");
+    }
+string $obj[];
+string $objects[];
+string $name = $sels[0];
 	
 	for($i=0; $i<$duplicationAmount; $i++)
 	{
@@ -36,7 +33,7 @@ if (size($sels) != 1)
 	move -r $xOffset $yOffset $zOffset $objects;
 	group -name ($name + "Group") $objects;
 	
-}
+    }
 }
 
 RandomDuplicater(10, -10, 10, -3, 3, -10, 10, 0, 20, 0);
