@@ -3,6 +3,7 @@
 	string $input = "L_Arm_####_Geo";
 	string $tokens[];
 	int $zeroes;
+	int $sizeI;
 	int $zeroArray[];
 	string $zeroText;
 	int $numArray[];
@@ -27,6 +28,8 @@
 		{
 			$zeroes = ($padding - $i - 2);
 		}
+		$sizeI = size($i);
+		$zeroes = ($zeroes - $sizeI);
 		$numArray[0] = $i+1; 
 		$zeroArray[$zeroes] = 0;
 		$zeroText = intArrayToString ($zeroArray, "");
