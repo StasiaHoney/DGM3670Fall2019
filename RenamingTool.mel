@@ -1,0 +1,39 @@
+{
+	string $sels[] = `ls -sl`;	
+	string $input = "L_Arm_####_Geo";
+	string $tokens[];
+	int $zeroes;
+	int $zeroArray[];
+	string $zeroText;
+	int $numArray[];
+	string $numText;
+	
+	if (size($sels) < 1)
+	{
+		error("Must select multiple objects!");
+	}
+	
+	tokenize $input "#" $tokens;
+
+	int $origin = `size($input)`;
+	int $string1 = `size($tokens[0])`;
+	int $string2 = `size($tokens[1])`;
+	int $tokensAdded = ($string1 + $string2);
+	int $padding = ($origin - $tokensAdded);
+	
+	for($i=0; $i<size($sels); $i++)
+	{	
+		if($i < $padding)
+		{
+			$zeroes = ($padding - $i - 2);
+		}
+		$numArray[0] = $i+1; 
+		$zeroArray[$zeroes] = 0;
+		$zeroText = intArrayToString ($zeroArray, "");
+		$numText = intArrayToString ($numArray, "");
+		rename $sels[$i] ($tokens[0] + $zeroText + $numText + $tokens[1]);
+
+		
+	}
+	
+}
