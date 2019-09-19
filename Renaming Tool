@@ -5,6 +5,8 @@
 	int $zeroes;
 	int $zeroArray[];
 	string $zeroText;
+	int $numArray[];
+	string $numText;
 	
 	if (size($sels) < 1)
 	{
@@ -23,14 +25,15 @@
 	{	
 		if($i < $padding)
 		{
-			$zeroes = ($padding - $i - 1);
+			$zeroes = ($padding - $i - 2);
 		}
-		
+		$numArray[0] = $i+1; 
 		$zeroArray[$zeroes] = 0;
 		$zeroText = intArrayToString ($zeroArray, "");
-		
+		$numText = intArrayToString ($numArray, "");
+		rename $sels[$i] ($tokens[0] + $zeroText + $numText + $tokens[1]);
+
 		
 	}
 	
-	rename $sels[$i] ($string1 + $zeroText + $string2);
 }
