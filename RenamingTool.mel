@@ -3,6 +3,10 @@
 	string $input = "L_Arm_####_Geo";
 	string $tokens[];
 	int $zeroes;
+	int $zero;
+	string $iString;
+	int $sizeI;
+	int $iArray[];
 	int $zeroArray[];
 	string $zeroText;
 	int $numArray[];
@@ -23,16 +27,26 @@
 	
 	for($i=0; $i<size($sels); $i++)
 	{	
-		if($i < $padding)
-		{
-			$zeroes = ($padding - $i - 2);
-		}
-		$numArray[0] = $i+1; 
-		$zeroArray[$zeroes] = 0;
+	    $iString = $i;		
+        $sizeI = (`size($iString)`);
+		$zeroes = ($padding - $sizeI);			
+		$numArray[0] = $i+1;
 		$zeroText = intArrayToString ($zeroArray, "");
 		$numText = intArrayToString ($numArray, "");
-		rename $sels[$i] ($tokens[0] + $zeroText + $numText + $tokens[1]);
-
+		
+		if($zeroes >0)
+		{
+		    $zeroArray[$zeroes-1] = 0;		
+		    intArrayRemoveAtIndex (($zeroes), $zeroArray);
+		    rename $sels[$i] ($tokens[0] + $zeroText + $numText + $tokens[1]);		
+		} 
+		else
+		{
+		    rename $sels[$i] ($tokens[0] + $numText + $tokens[1]);
+		}
+		
+		
+		
 		
 	}
 	

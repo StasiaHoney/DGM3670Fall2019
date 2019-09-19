@@ -1,9 +1,12 @@
 {
 	string $sels[] = `ls -sl`;	
-	string $input = "L_Arm_####_Geo";
+	string $input = "L_Arm_###_Geo";
 	string $tokens[];
 	int $zeroes;
+	int $zero;
+	string $iString;
 	int $sizeI;
+	int $iArray[];
 	int $zeroArray[];
 	string $zeroText;
 	int $numArray[];
@@ -24,14 +27,13 @@
 	
 	for($i=0; $i<size($sels); $i++)
 	{	
-		if($i < $padding)
-		{
-			$zeroes = ($padding - $i - 2);
-		}
-		$sizeI = size($i);
-		$zeroes = ($zeroes - $sizeI);
+	    $iString = $i;		
+        $sizeI = (`size($iString)`);
+		$zeroes = ($padding - $sizeI);
+		print $zeroes;		
 		$numArray[0] = $i+1; 
-		$zeroArray[$zeroes] = 0;
+		$zeroArray[$zeroes-1] = 0;
+		intArrayRemoveAtIndex (($zeroes), $zeroArray);
 		$zeroText = intArrayToString ($zeroArray, "");
 		$numText = intArrayToString ($numArray, "");
 		rename $sels[$i] ($tokens[0] + $zeroText + $numText + $tokens[1]);
