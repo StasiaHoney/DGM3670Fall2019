@@ -1,0 +1,62 @@
+/*renaming selection with incremental numbers starting at 1
+(L_Leg_###_Geo / (Prefix_##_Suffix))
+-Number of "#" represents minimum number of characters for the number
+
+parse/separate/tokenize the input string to prefix and suffix
+
+get selection, assign to list
+
+loop through each selection	
+	iterator (number) to insert into name string (starts at 1)
+	concatenate prefix + iterator +suffix
+	rename individual selection*/
+	
+/*
+	does "#" exist
+	if not, throw error
+	if there are separate groupings of "#", throw error
+	else create padding
+	
+	how many "#" characters exist to determine minimum num of characters
+	*need iterator to count up from 1
+	*need prefix and suffix
+	*combine pieces to make name
+*/
+	
+{
+	
+	string $input = "L_Leg_###_Geo"; //input string
+	string $tokens[];
+	string $sels [] = `ls -sl`;
+	
+	
+	tokenize $input "#" $tokens; // ["L_Leg_" , "_Geo"]
+	
+	if(size($tokens) != 2)
+	{
+		error ("Input string must be in the form \"Prefix_##_Suffix\"" );
+	}
+	
+	int $digitsDelimiter = (size($input) - size(tokens[0] - size(tokens[1]);
+	
+	for ($i; $i<(size($sels); $i++)
+	{
+		//$sels[$i] : each selection
+		//$i + 1 : iterator value to insert into name
+		
+		int $digitsIter = `(size((string)($i + 1))` ;
+		int $numPads = $digitsDelimiter - $digitsIter;
+		string $pad = "";
+		
+		for($j; $j<$numPads; $j++)
+		{
+			$pad = ($pad + "0");
+		}
+		
+		string $newName = $tokens[0] + $pad + ($i + 1) + $tokens[1];
+		rename $sels[$i] $newName;
+	}
+	
+	
+
+}
