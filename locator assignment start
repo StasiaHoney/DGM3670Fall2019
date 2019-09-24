@@ -1,0 +1,29 @@
+spaceLocator -p 0 0 0;
+
+//take selected objects, find the average position and create a locator at that position.
+//create a locator at the center of each selected object
+//boundingBox (xform Flag) used in a midpoint formula 
+
+/*
+	in a for loop 
+	get translation attributes of each selected object
+	create a locator at the center of each selected object
+	
+	find the center of all of the selected objects
+	create a locator at that center location
+*/
+
+
+{
+	string $selection[] = `ls -sl`;
+	
+	for( $i=0; $i<size($selection); $i++)
+	{
+		float $posX = `getAttr $selection[$i].translateX`;
+		float $posY = `getAttr $selection[$i].translateY`;
+		float $posZ = `getAttr $selection[$i].translateZ`;
+		
+		spaceLocator -position $posX $posY $posZ;
+	}
+
+}
