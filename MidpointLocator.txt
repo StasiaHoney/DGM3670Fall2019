@@ -1,12 +1,6 @@
 proc MidpointLocator(int $midpointInd, int $midpointAll)
 {   
 	string $selection[] = `ls -sl`;
-	float $posX[]; 
-	float $posY[]; 
-	float $posZ[];
-	float $addedX;
-	float $addedY;
-	float $addedZ;
 	float $selectionBB[];
 	float $midpointX;
 	float $midpointY;
