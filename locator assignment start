@@ -16,14 +16,35 @@ spaceLocator -p 0 0 0;
 
 {
 	string $selection[] = `ls -sl`;
+	float $posX[]; 
+	float $posY[]; 
+	float $posZ[];
+	float $midpointX;
+	float $midpointY;
+	float $midpointZ;
 	
 	for( $i=0; $i<size($selection); $i++)
 	{
-		float $posX = `getAttr $selection[$i].translateX`;
-		float $posY = `getAttr $selection[$i].translateY`;
-		float $posZ = `getAttr $selection[$i].translateZ`;
-		
-		spaceLocator -position $posX $posY $posZ;
+	    
+	    string $selectionI = $selection[$i];
+		float $X = `getAttr ($selectionI + ".translateX")`;
+		float $Y = `getAttr ($selectionI + ".translateY")`;
+		float $Z = `getAttr ($selectionI + ".translateZ")`;
+				
+		spaceLocator -absolute -position $X $Y $Z;
+				
 	}
+	
+	for($i=0; $i<size($selection); $i++)
+	{
+	    string $selectionI = $selection[$i];
+		$posX[$i] = `getAttr ($selectionI + ".translateX")`; 
+		$posY[$i] = `getAttr ($selectionI + ".translateY")`; 
+		$posZ[$i] = `getAttr ($selectionI + ".translateZ")`; 
+		
+		
+	}
+
+    $midpointX = (
 
 }
