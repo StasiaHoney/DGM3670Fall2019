@@ -1,0 +1,75 @@
+//matrix Arrays
+
+string $names[] = {"Bill", "Mary", "Joe"};
+int $numAssignments = 10;
+
+float $grades[size($names)][$numAssignments]; //creates array that is 3x10
+
+for ($i=0; $i<size($names); $i++)
+{
+	print $names($i);
+	
+	for($j=0; $j<$numAssignments; $j++)
+	{
+		print $grades[$i][$j];
+	}
+}
+
+///////////////////////////////////////////////////////////////
+
+//Recursion
+
+global int $num = 0;
+
+proc RecursiveAddition(int $limit)
+{
+	global int $num;
+	if($num<$limit)
+	{
+		$num++;
+		RecursiveAddition($limit);		
+	}
+}
+
+print $num;
+
+RecursiveAddition(5);
+
+//
+
+int RecursiveFactorial(int $n)
+{
+	static int $i;
+	
+	if($n==1)
+	{
+		return 1;
+	}
+	else
+	{
+		$i++;
+		return $n = $n*RecursiveFactorial($n-1)
+	}
+}
+
+int $factorial RecursiveFactorial(6);
+print $factorial;
+
+////////////////////////////////////////////////////////////////
+
+//returns
+
+proc int Add(int $a, int $b)
+
+{
+	int $total;
+	$total = $a + $b;
+	return $total;
+}
+
+int $sum = Add(5,7); //don't need to use backticks in procedures (apparently)
+print $sum;
+
+/////////////////////////////////////////////////////////////////
+
+
