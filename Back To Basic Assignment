@@ -1,0 +1,72 @@
+proc Calculations(int $addition, int $subtraction, int $multiplication, int $division, int $power, int $mean, int $median, int $mode){	
+	
+	float $nums[] = {5.3, 3.7, 2.5};
+	float $num;
+	float $sum;
+	float $sub;
+	float $multi;
+	float $div;
+	float $powers;
+	
+	float $solution;
+	
+	if($addition == 1)
+	{
+	    for ($i=0; $i<size($nums); $i++)
+    	{
+    		$sum = $sum + $nums[$i];
+    	}
+    	$solution = $sum;
+    }
+    
+    if($subtraction == 1)
+    {
+        for ($i=0; $i<size($nums); $i++)
+    	{
+    		$sub = $sub - $nums[$i];
+    	}
+    	$solution = $sub;
+    }
+    
+    if($multiplication == 1)
+    {
+        for ($i=0; $i<size($nums); $i++)
+    	{
+    		$multi = $multi * $nums[$i];
+    	}
+    	$solution = $multi;
+    }
+    
+    if($division ==1)
+    {
+        for ($i=0; $i<size($nums); $i++)
+    	{
+    		$div = $div / $nums[$i];
+    	}
+    	$solution = $div;
+    }
+    
+    if($power == 1)
+    {
+        
+        for ($i=0; $i<$powers; $i++)
+    	{
+    		$num = $num * $num;
+    	}
+    	$solution = $num;    
+    } 
+    
+    if($mean ==1)
+    {
+        for ($i=0; $i<size($nums); $i++)
+    	{
+    		$sum = $sum + $nums[$i];
+    	}
+    	$sum = $sum/size($nums);
+    	$solution = $sum;
+    }
+    
+    print ("The solution is " + $solution + ".\n");
+	}
+	
+	Calculations(0,0,0,0,0,0,0,0);
