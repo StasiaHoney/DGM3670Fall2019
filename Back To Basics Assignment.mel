@@ -1,0 +1,126 @@
+global float $solution;
+
+proc float Addition (float $nums[])
+{        
+    float $sum;
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$sum = $sum + $nums[$i];
+	}
+	$solution = $sum;
+	return $solution;
+}
+
+Addition({1,2,3,4,5,6,7,8,9});
+
+proc float Subtraction (float $nums[])
+{
+	float $sub;
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$sub = $sub - $nums[$i];
+	}
+	$solution = $sub;
+	return $solution;
+}
+Subtraction({1,2,3,4,5,6,7,8,9});
+
+proc float Multiplication (float $nums[])
+{
+	float $multi;
+	
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$multi = $multi * $nums[$i];
+	}
+	$solution = $multi;
+	return $solution;
+}
+Multiplication({1,2,3,4,5,6,7,8,9});
+
+proc float Division(float $nums[])
+{
+	float $div;
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$div = $div / $nums[$i];
+	}
+	$solution = $div;
+	return $solution;
+}
+Division({1,2,3,4,5,6,7,8,9});
+
+proc float Power (float $num, float $power)
+{
+	$solution = pow($num, $power);
+	return $solution;
+}
+Power(6,7);
+
+proc float Mean(float $nums[])
+{
+	float $sum;
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$sum = $sum + $nums[$i];
+	}
+	$sum = $sum/size($nums);
+	$solution = $sum;
+	return $solution;
+}
+Mean({1,2,3,4,5,6,7,8,9});
+
+proc float Median(float $nums[])
+{
+	float $numArray[] = `sort $nums`;
+	int $size = size($numArray);
+	float $median;
+	
+	if($size % 2 != 0)
+	{
+		int $temp = floor($size/2);
+		$median = $numArray[$temp];
+	}
+	
+	if($size % 2 == 0)
+	{
+		int $temp = ($size/2);
+		int $medianAlt = ($temp - 1);
+		
+		$median = ($numArray[$temp] + $numArray[$medianAlt]);
+		$median = $median/2;
+	}
+	
+	return $median;
+}
+Median({1,2,3,4,5,6,7,8,9,10});
+
+proc float Mode(float $nums[])
+{
+	float $numArray[] = `sort $nums`;
+	float $num = $nums[0];
+	float $mode = $num;
+	float $frequency = 1;
+	float $count = 1;
+	
+	for($i = 1; $i<size($nums); $i++)
+	{
+		if($nums[$i] == $num)
+		{
+			$frequency++;
+		}
+		else
+		{
+			if($frequency>$count)
+			{
+				$count = $frequency;
+				$mode = $num;
+			}
+			
+			$frequency = 1;
+			$num = $nums[$i];
+		}
+	}
+	return $mode;
+}
+Mode({1,2,3,4,5,5,6,7,8,9,10});
