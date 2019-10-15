@@ -1,0 +1,79 @@
+proc Calculator(int $operation, float $array[])
+{	
+	float $solution;
+	int $size = `size($array)`;
+
+	if($operation == 1)
+	{//Addition
+		$solution = Addition($array);
+
+		for($i=0; $i<($size - 1); $i++)
+		{
+			print ($array[$i] + " + ");
+		}
+		print ($array[$size-1] + " = " + $solution);
+	}else if($operation == 2)
+	{//Subtraction
+		$solution = Subtraction($array);
+		
+		for($i=0; $i<($size - 1); $i++)
+		{
+			print ($array[$i] + " - ");
+		}
+		print ($array[$size-1] + " = " + $solution);
+	} else if($operation == 3)
+	{//Multiplication
+		$solution = Multiplication($array);
+		
+		for($i=0; $i<($size - 1); $i++)
+		{
+			print ($array[$i] + " * ");
+		}
+		print ($array[$size-1] + " = " + $solution);
+	} else if($operation == 4)
+	{//Division
+		$solution = Division($array);
+		
+		for($i=0; $i<($size - 1); $i++)
+		{
+			print ($array[$i] + " / ");
+		}
+		print ($array[$size-1] + " = " + $solution);
+	}	else if($operation == 5)
+	{//Power
+			
+		$solution = Power($array);
+		
+		print ($array[0] + "^" + $array[1] + " = " + $solution);
+	} else if($operation == 6)
+	{//Mean
+		$solution = Mean($array);
+		print ("The average of ");
+		for($i=0; $i<($size - 1); $i++)
+		{
+			print ($array[$i] + ", ");
+		}
+		print ("and " + $array[$size-1] + " is " + $solution);
+	} else if ($operation == 7)
+	{//Median
+		$solution = Median($array);
+		print ("The Median of ");
+		for($i=0; $i<($size - 1); $i++)
+		{
+			print ($array[$i] + ", ");
+		}
+		print ("and " + $array[$size-1] + " is " + $solution);
+	}else if($operation == 8)
+	{//Mode
+		$solution = Mode($array);
+		print ("The Mode of ");
+		for($i=0; $i<($size - 1); $i++)
+		{
+			print ($array[$i] + ", ");
+		}
+		print ("and " + $array[$size-1] + " is " + $solution);
+	}
+	
+}
+
+Calculator(5,{2,3});
