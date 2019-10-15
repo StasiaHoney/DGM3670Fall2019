@@ -1,3 +1,122 @@
+global float $solution;
+
+proc float Addition (float $nums[])
+{        
+    float $sum;
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$sum = $sum + $nums[$i];
+	}
+	$solution = $sum;
+	return $solution;
+}
+
+
+proc float Subtraction (float $nums[])
+{
+	float $sub;
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$sub = $sub - $nums[$i];
+	}
+	$solution = $sub;
+	return $solution;
+}
+
+proc float Multiplication (float $nums[])
+{
+	float $multi = $nums[0];
+	
+	for ($i=1; $i<size($nums); $i++)
+	{
+		$multi = $multi * $nums[$i];
+	}
+	$solution = $multi;
+	return $solution;
+}
+
+proc float Division(float $nums[])
+{
+	float $div = $nums[0];
+	for ($i=1; $i<size($nums); $i++)
+	{
+		$div = $div / $nums[$i];
+	}
+	$solution = $div;
+	return $solution;
+}
+
+proc float Power (float $nums[])
+{
+	$solution = `pow $nums[0] $nums[1]`;
+	return $solution;
+}
+
+proc float Mean(float $nums[])
+{
+	float $sum;
+	for ($i=0; $i<size($nums); $i++)
+	{
+		$sum = $sum + $nums[$i];
+	}
+	$sum = $sum/size($nums);
+	$solution = $sum;
+	return $solution;
+}
+
+proc float Median(float $nums[])
+{
+	float $numArray[] = `sort $nums`;
+	int $size = size($numArray);
+	float $median;
+	
+	if($size % 2 != 0)
+	{
+		int $temp = floor($size/2);
+		$median = $numArray[$temp];
+	}
+	
+	if($size % 2 == 0)
+	{
+		int $temp = ($size/2);
+		int $medianAlt = ($temp - 1);
+		
+		$median = ($numArray[$temp] + $numArray[$medianAlt]);
+		$median = $median/2;
+	}
+	
+	return $median;
+}
+
+proc float Mode(float $nums[])
+{
+	float $numArray[] = `sort $nums`;
+	float $num = $nums[0];
+	float $mode = $num;
+	float $frequency = 1;
+	float $freqMode = 1;
+	
+	for($i = 1; $i<size($nums); $i++)
+	{
+		if($nums[$i] == $num)
+		{
+			$frequency++;
+		}
+		else
+		{
+			if($frequency>$freqMode)
+			{
+				$freqMode = $frequency;
+				$mode = $num;
+			}
+			
+			$frequency = 1;
+			$num = $nums[$i];
+		}
+	}
+	return $mode;
+}
+
 proc Calculator(int $operation, float $array[])
 {	
 	float $solution;
@@ -41,10 +160,14 @@ proc Calculator(int $operation, float $array[])
 		print ($array[$size-1] + " = " + $solution);
 	}	else if($operation == 5)
 	{//Power
-			
-		$solution = Power($array);
-		
-		print ($array[0] + "^" + $array[1] + " = " + $solution);
+		if ($size == 2)
+		{
+    		$solution = Power($array);
+    		print ($array[0] + "^" + $array[1] + " = " + $solution);
+		}else
+		{
+		    error "Must input two numbers with the base number first and the exponent second";
+		}
 	} else if($operation == 6)
 	{//Mean
 		$solution = Mean($array);
@@ -76,4 +199,4 @@ proc Calculator(int $operation, float $array[])
 	
 }
 
-Calculator(5,{2,3});
+Calculator(4,{2,3,6,7});
