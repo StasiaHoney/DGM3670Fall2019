@@ -2,8 +2,8 @@ global float $solution;
 
 proc float Addition (float $nums[])
 {        
-    float $sum;
-	for ($i=0; $i<size($nums); $i++)
+    float $sum = $nums[0];
+	for ($i=1; $i<size($nums); $i++)
 	{
 		$sum = $sum + $nums[$i];
 	}
@@ -14,8 +14,8 @@ proc float Addition (float $nums[])
 
 proc float Subtraction (float $nums[])
 {
-	float $sub;
-	for ($i=0; $i<size($nums); $i++)
+	float $sub = $nums[0];
+	for ($i=1; $i<size($nums); $i++)
 	{
 		$sub = $sub - $nums[$i];
 	}
@@ -117,7 +117,7 @@ proc float Mode(float $nums[])
 	return $mode;
 }
 
-proc Calculator(int $operation, float $array[])
+proc float Calculator(int $operation, float $array[])
 {	
 	float $solution;
 	int $size = `size($array)`;
@@ -171,7 +171,7 @@ proc Calculator(int $operation, float $array[])
 	} else if($operation == 6)
 	{//Mean
 		$solution = Mean($array);
-		print ("The average of ");
+		print ("The Average of ");
 		for($i=0; $i<($size - 1); $i++)
 		{
 			print ($array[$i] + ", ");
@@ -196,7 +196,8 @@ proc Calculator(int $operation, float $array[])
 		}
 		print ("and " + $array[$size-1] + " is " + $solution);
 	}
+	return $solution;
 	
 }
 
-Calculator(4,{2,3,6,7});
+Calculator(3,{2,3,3});
