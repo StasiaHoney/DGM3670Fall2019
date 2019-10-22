@@ -1,60 +1,53 @@
 proc MidpointLocator(int $midpointInd, int $midpointAll)
 {   
 	string $selection[] = `ls -sl`;
-	float $posX[]; 
-	float $posY[]; 
-	float $posZ[];
-	float $addedX;
-	float $addedY;
-	float $addedZ;
+	int $size = `size($selection)`;
+	
 	float $selectionBB[];
 	float $midpointX;
 	float $midpointY;
 	float $midpointZ;
 	
-	
-	
-	
 	if($midpointInd == 1)
 	{
-    	for( $i=0; $i<size($selection); $i++)
+    	for ($i=0; $i<$size; $i++)
     	{
-    	    
-    	    string $selectionI = $selection[$i];
-    		float $X = `getAttr ($selectionI + ".translateX")`;
-    		float $Y = `getAttr ($selectionI + ".translateY")`;
-    		float $Z = `getAttr ($selectionI + ".translateZ")`;
-    				
-    		spaceLocator -absolute -position $X $Y $Z;
-    					
+    	    $selectionBB = `xform -query -boundingBox $selection[$i]`;
+    	    $midpointX = (($selectionBB[0] + $selectionBB[3])/2); 
+            $midpointY = (($selectionBB[1] + $selectionBB[4])/2);
+            $midpointZ = (($selectionBB[2] + $selectionBB[5])/2);
+            
+            spaceLocator -position $midpointX $midpointY $midpointZ;
     	}
 	}
-	/*for($i=0; $i<size($selection); $i++)
-	{
-	    string $selectionI = $selection[$i];
-		$posX[$i] = `getAttr ($selectionI + ".translateX")`; 
-		$posY[$i] = `getAttr ($selectionI + ".translateY")`; 
-		$posZ[$i] = `getAttr ($selectionI + ".translateZ")`;
-		
-		float $addedX = $addedX + $posX[$i];
-		float $addedY = $addedY + $posY[$i];
-		float $addedZ = $addedZ + $posZ[$i];
-		
-	}*/
+	
 	
 	if($midpointAll == 1)
-	{
-	    group -name "Selection" $selection ;
-	    
-        $selectionBB = `xform -query -boundingBox "Selection"`;
+	{    
+	    string $loc[];
+	    string $locators[];
+	    for ($i=0; $i<$size; $i++)
+    	{
+    	    $selectionBB = `xform -query -boundingBox $selection[$i]`;
+    	    $midpointX = (($selectionBB[0] + $selectionBB[3])/2); 
+            $midpointY = (($selectionBB[1] + $selectionBB[4])/2);
+            $midpointZ = (($selectionBB[2] + $selectionBB[5])/2);
+            
+            $loc = `spaceLocator -position $midpointX $midpointY $midpointZ`;
+            $locators[$i] = $loc[0];
+    	}
+    	
+    	group -name "Locators"$locators;
+    	
+        $selectionBB = `xform -query -boundingBox Locators`;
         $midpointX = (($selectionBB[0] + $selectionBB[3])/2); 
         $midpointY = (($selectionBB[1] + $selectionBB[4])/2);
         $midpointZ = (($selectionBB[2] + $selectionBB[5])/2);
         
         spaceLocator -position $midpointX $midpointY $midpointZ;
         
-        ungroup "Selection";
+        delete "Locators";
     }
 }
 
-MidpointLocator(1, 0);
+MidpointLocator(0, 1);

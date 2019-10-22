@@ -36,4 +36,4 @@ string $name = $sels[0];
     }
 }
 
-RandomDuplicater(10, -10, 10, -3, 3, -10, 10, 0, 20, 0);
+RandomDuplicater(10, -10, 10, -3, 3, -10, 10, 0, 0, 0);
