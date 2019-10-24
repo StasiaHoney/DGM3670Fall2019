@@ -1,0 +1,79 @@
+//input a float array of nums
+//analyze nums, track each unique value and frequency
+//find highest frequency value and related number(s) = mode
+//return mode
+
+//input a float array of nums
+//analyze nums, track each unique value and frequency
+//find highest frequency value and related number(s) = mode
+//return mode
+
+global proc float[] Mode(float $values[])
+{
+	float $uNum[];
+	float $uFreq[];
+	float $mode[];
+	int $mFreq;
+	print $values;
+	//find unique values and frequency, stor in arrays
+	for($val in $values)
+	{
+		int $index = floatArrayFind($val, 0, $uNum);
+		if ($index == -1)
+		{
+			$index = size($uNum);
+			$uNum[$index] = $val;
+		}
+		
+		$uFreq[$index] = $uFreq[$index] + 1;
+	}
+	//find highest frequency and associated value(s)
+	for($i=0; $i<size($uFreq); $i++)
+	{
+		if($uFreq[$i] > $mFreq)
+		{
+			$mFreq = $uFreq[$i];
+			$mode = {$uNum[$i]}; 
+		}
+		else if($uFreq[$i] == $mFreq)
+		{
+			$mode[size($mode)] = $uNum[$i];
+		}
+	}
+	
+	
+	
+	return $mode;
+	
+}
+
+Mode(GenerateRands(20, 0, 10, 1));
+
+
+
+
+global proc float[] GenerateRands(int $num, int $min, int $max, int $round)
+{
+	float $rands[];//store array of rand nums
+	
+	for ($i=0; $i<$num; $i++)
+	{
+		float $randNum = `rand $min $max`;
+		
+		if($round)
+		{
+			$randNum = `floor $randNum`;
+		}
+		
+		$rands[size($rands)] = $randNum;
+	}
+	
+	return $rands;
+}
+
+
+
+
+
+
+
