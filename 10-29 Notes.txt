@@ -1,0 +1,43 @@
+//Mel Vectors
+
+{
+	string $sels[] = `ls -sl`;
+	vector $allPos[];
+	
+	for ($sel in $sels)
+	{
+		float $tempPivot[] = `xform -q -ws -rotatePivot $sel`;
+		$allPos[size($allPos)] = <<$tempPivot[0], $tempPivot[1], $tempPivot[2]>>;
+	}
+	
+	for($i=0; $i<(size($allPos)); $i++)
+	{
+		vector $tempVec = $allPos[$i];
+		print ("Object " + $i + ": " + $allPos[$i]);
+		print ("X: " + $tempVec.x + " Y: " + $tempVec.y + " Z: " + $tempVec.z);
+	}
+}
+
+///////////////////////////////////////////////////
+
+//UI
+{
+	string $mWindow;
+	
+	if(window -exists $mWindow)
+	{
+		deleteUI -window $mWindow;
+	}
+	$mWindow = `window -title "My Window" -widthHeight 200 400`;
+	string $mColumn = `columnLayout -p $mWindow -adjustableColumn 1 -rowSpacing 5 ` ;
+	button -p $mColumn -label "Print \"Hello World\""
+		   -command PrintArg("Hello World");
+	button -p $mColumn -label "Print \"Goodbye World\"";
+	button -p $mColumn -label "Print \"Hello Darkness\"";
+	showWindow $mWindow; 
+}
+
+global proc PrintArg(string $input)
+{
+	print ($input);
+}

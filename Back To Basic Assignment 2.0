@@ -11,7 +11,6 @@ proc float Addition (float $nums[])
 	return $solution;
 }
 
-Addition({1,2,3,4,5,6,7,8,9});
 
 proc float Subtraction (float $nums[])
 {
@@ -23,7 +22,6 @@ proc float Subtraction (float $nums[])
 	$solution = $sub;
 	return $solution;
 }
-Subtraction({1,2,3,4,5,6,7,8,9});
 
 proc float Multiplication (float $nums[])
 {
@@ -36,7 +34,6 @@ proc float Multiplication (float $nums[])
 	$solution = $multi;
 	return $solution;
 }
-Multiplication({1,2,3,4,5,6,7,8,9});
 
 proc float Division(float $nums[])
 {
@@ -48,14 +45,12 @@ proc float Division(float $nums[])
 	$solution = $div;
 	return $solution;
 }
-Division({1,2,3,4,5,6,7,8,9});
 
 proc float Power (float $num, float $power)
 {
 	$solution = pow($num, $power);
 	return $solution;
 }
-Power(6,7);
 
 proc float Mean(float $nums[])
 {
@@ -68,7 +63,6 @@ proc float Mean(float $nums[])
 	$solution = $sum;
 	return $solution;
 }
-Mean({1,2,3,4,5,6,7,8,9});
 
 proc float Median(float $nums[])
 {
@@ -93,7 +87,6 @@ proc float Median(float $nums[])
 	
 	return $median;
 }
-Median({1,2,3,4,5,6,7,8,9,10});
 
 proc float Mode(float $nums[])
 {
@@ -123,4 +116,3 @@ proc float Mode(float $nums[])
 	}
 	return $mode;
 }
-Mode({1,2,3,4,5,5,6,7,8,9,10});
