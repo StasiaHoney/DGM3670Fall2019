@@ -103,22 +103,8 @@ def Mode(values):
     input: float/int value, float/int power
     return: float/int
     '''
-    import math
-    uNum = []
-    uFreq = []
-    mode = []
-    mFreq = 0
-    for val in values:
-        index = math.floatArrayFind(val, 0, uNum)
-        if(index == -1):
-            index = len(uNum)
-            uNum[index] = val
-        uFreq[index] = uFreq[index] + 1
-    for val in values:
-        if(uFreq[val] > mFreq):
-            mFreq = uFreq[val]
-            mode = {uNum[val]}
-        elif(uFreq[val] == mFreq):
-            mode[len(mode)] = uNum[val]
-    return mode
+    import statistics
+    return statistics.mode(values)
+
+
 Mode([1,2,3,4,4,5,6,6])
