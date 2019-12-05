@@ -57,7 +57,5 @@ class Toolbox():
                 cmds.setAttr('%s.overrideEnabled' % shape, True)
                 cmds.setAttr('%s.overrideColor' % shape, color)
 
-myTool = Toolbox()
-myTool.create()
 
 
