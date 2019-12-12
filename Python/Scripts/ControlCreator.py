@@ -29,4 +29,3 @@ def CtrlCreator(moveX, moveY, moveZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ):
                 cmds.scale(scaleX, scaleY, scaleZ)
 
 
-CtrlCreator(0,0,0, 0,0,0, 1,1,1)

@@ -5,9 +5,9 @@ def Add(values):
     input: list of float/int values
     return: float/int
     '''
-    sum = float(values[0])
+    sum = values[0]
     for val in values[1:]:
-        sum += float(val)
+        sum += val
 
     return sum
 
